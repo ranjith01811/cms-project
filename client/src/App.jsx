@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import DevelopersPage from './pages/DevelopersPage';
 import './App.css'
 import Home from './pages/home'
 
