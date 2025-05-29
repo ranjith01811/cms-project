@@ -1,10 +1,10 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
+import HeroSectionComponent from "../components/HeroSectionComponent";
 
 function Home({ setCurrentPage }) {
   return (
     <>
-      <HeroSection setCurrentPage={setCurrentPage} />
+      <HeroSectionComponent setCurrentPage={setCurrentPage} />
 
       <section className="py-16 px-6 sm:px-10 bg-white text-center">
         <div className="max-w-4xl mx-auto">

@@ -1,3 +1,7 @@
+
+import React from 'react';
+import '../styles/FooterComponent.css'; // Assuming you have a CSS file for styles
+import '../styles/tailwind.css'; // Ensure Tailwind CSS is imported
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8 px-6 sm:px-10 text-center rounded-t-xl">
