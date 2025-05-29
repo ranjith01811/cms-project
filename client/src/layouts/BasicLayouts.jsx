@@ -1,25 +1,30 @@
-import {Link, outlet} from "react-router";
+import {Link, Outlet, outlet} from "react-router";
 
-const Header = () => (
-    <header className="p-4 bg-gray-800 text-white">
-        <h1 className="text-2xl font-bold">My CMS Project</h1>
+function BasicLayouts() {
+  return (
+    <>
+    <header className="bg-black text-white py-4 shadow-md flex flex-col sm-flex-row items-center justify-between px-6">
+      <div className="text-2xl font-semibold flex items-center gap-2">
+        <span role="img" aria-label='notes'>
+            <Link to={'/home'}>🎉Events</Link>
+        </span>
+      </div>
+      <div className="mt-3 sm:mt-0 flex gap-3">
+        <div className="bg-black border-2 text-white px-4 py-2 rounded cursor-pointer">
+            <Link to={'/login'}>sign-in</Link>
+        </div>
+        <div className="bg-white text-black px-4 py-2 rounded cursor-pointer">
+            <Link to={'/sign-up'}>sign-up</Link>
+        </div>
+      </div>
     </header>
-);
-
-const Footer = () => (
-    <footer className="p-4 bg-gray-100 text-center">
-        <small>&copy; {new Date().getFullYear()} Our CMS Project</small>
+    <main className="">
+        <Outlet/>
+    </main>
+    <footer className="bg-gray-100 text-gray-600 py-4 text-center mt-8 border-t">
+        &copy; {new Date().getFullYear()} Event Coordination & Planning CMS. All rights reserved.
     </footer>
-);
-
-const BasicLayouts = () => (
-    <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 p-8">
-            <Outlet />
-        </main>
-        <Footer />
-    </div>
-);
-
+    </>
+  );
+}
 export default BasicLayouts;
