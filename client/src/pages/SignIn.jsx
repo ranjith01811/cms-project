@@ -1,39 +1,69 @@
-const SignIn = () => {
-    return (
-        <form className="max-w-md mx-auto p-6 bg-white rounded shadow">
-            <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-            <div className="mb-4">
-                <label htmlFor="email" className="block mb-1 font-medium">
-                    Email:
-                </label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
-            <div className="mb-6">
-                <label htmlFor="password" className="block mb-1 font-medium">
-                    Password:
-                </label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
-            <button
-                type="submit"
-                className="w-full py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
-            >
-                Sign In
-            </button>
-        </form>
-    );
-}
+function SignInPage({ setCurrentPage }) {
+  const { signin, loading } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [formError, setFormError] = useState('');
 
-export default SignIn;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormError('');
+    try {
+      await signin(email, password);
+      setCurrentPage('home');
+    } catch (err) {
+      console.error("Sign-in error:", err.message);
+      setFormError("Failed to sign in. Check your email and password.");
+    }
+  };
+
+  return (
+    <section className="py-20 px-6 sm:px-10 bg-gray-100 min-h-screen flex items-center justify-center pt-24">
+      <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
+        <h1 className="text-3xl font-bold text-center text-indigo-700 mb-6">Sign In</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="your.email@example.com"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="********"
+              required
+            />
+          </div>
+          {formError && <p className="text-red-600 text-sm text-center">{formError}</p>}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Signing In...' : 'Sign In'}
+          </button>
+        </form>
+        <p className="mt-6 text-center text-gray-600">
+          Don't have an account?{' '}
+          <button
+            onClick={() => setCurrentPage('signup')}
+            className="text-indigo-600 hover:underline font-medium focus:outline-none"
+          >
+            Sign Up
+          </button>
+        </p>
+      </div>
+    </section>
+  );
+}
