@@ -118,10 +118,6 @@ const About = () => {
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-        &copy; {getYear()} Event Project. Built for communities with passion.
-      </footer>
     </div>
   );
 };
