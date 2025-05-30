@@ -10,7 +10,7 @@ function HeroSection({ setCurrentPage }) {
         <p className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
           Crafting unforgettable moments and seamless events, from concept to execution.
         </p>
-        <button onClick={() => setCurrentPage('contact')} className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 animate-fade-in-up delay-400">
+        <button onClick={() => setCurrentPage('contact')} className="bg-blue-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 animate-fade-in-up delay-400">
           Plan Your Event
         </button>
       </div>
