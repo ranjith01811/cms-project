@@ -75,7 +75,7 @@ const SignUp = () => {
         <p className="mt-6 text-center text-gray-600">
           Already have an account?{' '}
           <button
-            onClick={() => setCurrentPage('signin')}
+            onClick={() => navigate('/login')}
             className="text-indigo-600 hover:underline font-medium focus:outline-none"
           >
             Sign In
