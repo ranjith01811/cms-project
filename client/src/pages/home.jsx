@@ -8,7 +8,7 @@ function Home({ setCurrentPage }) {
 
       <section className="py-16 px-6 sm:px-10 bg-white text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-6">Explore Our Services & Work</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#108298b1] mb-6">Explore Our Services & Work</h2>
           <p className="text-lg text-gray-700 mb-8">
             Discover how EventPro can transform your vision into a spectacular reality. From meticulous planning to flawless execution, we handle every detail.
           </p>

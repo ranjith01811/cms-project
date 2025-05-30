@@ -7,7 +7,7 @@ const BasicLayouts = () => {
       <header className="bg-black text-white py-4 shadow-md flex flex-col sm:flex-row items-center justify-between px-6">
         <div className="text-2xl font-semibold flex items-center gap-2">
           <span role="img" aria-label='notes'>
-            <Link to="/home" className="hover:underline focus:outline-none focus:ring-2 focus:ring-white">
+            <Link to="/" className="hover:underline focus:outline-none focus:ring-2 focus:ring-white">
               🎉Events
             </Link>
           </span>
