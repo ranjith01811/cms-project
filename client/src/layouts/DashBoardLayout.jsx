@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Menu, X } from "lucide-react"; // Install with `npm i lucide-react`
+import { Menu, X } from "lucide-react"; 
 
 const DashboardLayout = () => {
   const [isOpen, setIsOpen] = useState(false);

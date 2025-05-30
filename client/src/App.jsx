@@ -9,7 +9,7 @@ function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <p className="text-lg text-gray-700">Loading authentication...</p> {/* Changed message for clarity */}
+        <p className="text-lg text-gray-700">Loading authentication...</p> 
       </div>
     );
   }
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
-      {/* Render your router component directly here. It now handles all page rendering. */}
+      
       <AppRouter />
     </div>
   );

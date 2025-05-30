@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check auth state on app load
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
@@ -39,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    UserService.logout(); // optional, it's a stub
+    UserService.logout();
     localStorage.removeItem("authToken");
     setUser(null);
   };
