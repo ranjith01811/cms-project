@@ -5,7 +5,6 @@ import PrivateRoutes from './PrivatesRoutes';
 import LandingPage from '../pages/LandingPage';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import Dashboard from '../pages/Dashboard';
 import NotFound from '../pages/NotFound';
 import UserProfile from '../pages/dashboard/Profile';
 import Events from '../pages/dashboard/Events';
@@ -20,7 +19,7 @@ const AppRoutes = () => {
       </Route>
 
       <Route element={<PrivateRoutes><DashboardLayout /></PrivateRoutes>}>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/Events" element={<Events />} />
         <Route path="/dashboard/profile" element={<UserProfile />} />
         <Route path="/dashboard/events" element={<Events />} />
       </Route>

@@ -14,7 +14,7 @@ const SignIn = () => {
     setFormError('');
     try {
       await signin(email, password);
-      navigate("/dashboard");
+      navigate("/dashboard/Events");
     } catch (err) {
       console.error("Sign-in error:", err.message);
       setFormError("Failed to sign in. Check your email and password.");

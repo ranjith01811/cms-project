@@ -15,7 +15,7 @@ const SignUp = () => {
     setFormError('');
     try {
       await signup(email, password);
-      navigate("/dashboard"); 
+      navigate("/dashboard/Events"); 
     } catch (err) {
       console.error("Sign-up error:", err.message);
       setFormError("Failed to create account. Try again.");
