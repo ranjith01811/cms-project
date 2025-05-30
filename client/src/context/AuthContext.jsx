@@ -1,94 +1,54 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import UserService from "../service/UserService"; // Make sure this exists or mock it
+import React, { createContext, useContext, useEffect, useState } from "react";
+import UserService from "../service/UserService";
 
-// ✅ Create the context first
 const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Check auth state on app load
   useEffect(() => {
-    const checkAuthStatus = async () => {
-      try {
-        const storedToken = localStorage.getItem("authToken");
-        if (storedToken) {
-          const userData = await UserService.getUserProfile(storedToken); 
-          if (userData) {
-            setUser(userData);
-          } else {
-            localStorage.removeItem("authToken"); 
-          }
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      UserService.getUserProfile(token).then((profile) => {
+        if (profile) {
+          setUser(profile);
         }
-      } catch (error) {
-        console.error("Error checking auth status:", error);
-        localStorage.removeItem("authToken"); 
-      } finally {
         setLoading(false);
-      }
-    };
-
-    checkAuthStatus();
+      });
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   const signup = async (email, password) => {
-    setLoading(true);
-    try {
-      const userData = await UserService.signup(email, password);
-      setUser(userData);
-      localStorage.setItem("authToken", userData.token); 
-      return userData;
-    } catch (error) {
-      console.error("Error signing up:", error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
+    const profileData = await UserService.signup(email, password);
+    localStorage.setItem("authToken", profileData.token);
+    setUser(profileData);
   };
 
   const signin = async (email, password) => {
-    setLoading(true);
-    try {
-      const userData = await UserService.signin(email, password);
-      setUser(userData);
-      localStorage.setItem("authToken", userData.token); 
-      return userData;
-    } catch (error) {
-      console.error("Error signing in:", error);
-      throw error;
-    } finally {
-      setLoading(false);
+    const profile = await UserService.signin(email, password);
+    if (profile.password === password) {
+      localStorage.setItem("authToken", profile.token);
+      setUser(profile);
+    } else {
+      throw new Error("Invalid credentials");
     }
   };
 
-  const logout = async () => {
-    setLoading(true);
-    try {
-      await UserService.logout(); 
-      setUser(null);
-      localStorage.removeItem("authToken"); 
-    } catch (error) {
-      console.error("Error logging out:", error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
+  const logout = () => {
+    UserService.logout(); // optional, it's a stub
+    localStorage.removeItem("authToken");
+    setUser(null);
   };
 
-  const value = {
-    user,
-    loading,
-    signup,
-    signin,
-    logout
-  };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, signup, signin, logout, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-// ✅ Export both the provider and the hook
-export { AuthProvider };
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);

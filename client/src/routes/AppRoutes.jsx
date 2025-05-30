@@ -9,7 +9,6 @@ import TestimonialPage from '../pages/TestimonalPage';
 import ContactPage from '../pages/ContactPage';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import DevelopersPage from '../pages/DevelopersPage';
 import NotFound from "../pages/NotFound";
 import Dashboard from '../pages/Dashboard';
 import About from "../pages/About";
@@ -29,12 +28,9 @@ const AppRoutes = () => {
       </Route>
 
       <Route element={<PrivateRoutes><DashboardLayout /></PrivateRoutes>}>
-        <Route path="/developers" element={<DevelopersPage />} />
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Route>
+
 
       <Route path="*" elements={<NotFound />}/>
     </Routes>

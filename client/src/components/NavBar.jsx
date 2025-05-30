@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {currentUser ? (
           <>
-            <Link to="/developers" className="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">Developers</Link>
+            {/* <Link to="/developers" className="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">Developers</Link> */}
             <button
               onClick={handleLogout}
               className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm transition duration-300"
@@ -40,7 +40,7 @@ const Navbar = () => {
           </>
         ) : (
           <Link
-            to="/signin"
+            to="/login"
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md shadow-sm transition duration-300"
           >
             Sign In
