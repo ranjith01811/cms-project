@@ -7,6 +7,8 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import NotFound from '../pages/NotFound';
+import UserProfile from '../pages/dashboard/Profile';
+import Events from '../pages/dashboard/Events';
 
 const AppRoutes = () => {
   return (
@@ -14,11 +16,13 @@ const AppRoutes = () => {
       <Route element={<BasicLayout />}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/register" element={<SignUp />} />
+      <Route path="/register" element={<SignUp />} />
       </Route>
 
       <Route element={<PrivateRoutes><DashboardLayout /></PrivateRoutes>}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/profile" element={<UserProfile />} />
+        <Route path="/dashboard/events" element={<Events />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
@@ -27,4 +31,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-  

@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = () => {
   const navigate = useNavigate();
 
   return (
@@ -22,7 +22,7 @@ const DashboardLayout = ({ children }) => {
             </li>
             <li>
               <button
-                onClick={() => navigate("/dashboard/events")}
+                onClick={() => navigate("/dashboard/Events")}
                 className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200"
               >
                 Manage Events
@@ -30,7 +30,7 @@ const DashboardLayout = ({ children }) => {
             </li>
             <li>
               <button
-                onClick={() => navigate("/dashboard/profile")}
+                onClick={() => navigate("/dashboard/Profile")}
                 className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200"
               >
                 User Profile
@@ -39,12 +39,12 @@ const DashboardLayout = ({ children }) => {
           </ul>
         </aside>
         <main className="flex-1 p-6 sm:p-10 bg-gray-100 rounded-tl-xl">
-          {children}
+          <Outlet />
         </main>
       </div>
       <Footer />
     </div>
   );
-}
+};
 
 export default DashboardLayout;
