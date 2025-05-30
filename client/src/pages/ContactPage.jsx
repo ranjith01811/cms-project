@@ -67,3 +67,5 @@ function ContactPage() {
     </section>
   );
 }
+
+export default ContactPage;

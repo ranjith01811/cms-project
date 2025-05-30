@@ -1,23 +1,38 @@
-function DashboardLayout({ children, setCurrentPage }) {
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
+
+const DashboardLayout = ({ children }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar setCurrentPage={setCurrentPage} />
+      <Navbar />
       <div className="flex flex-1">
         <aside className="w-64 bg-gray-800 text-white p-4 hidden md:block rounded-tr-xl">
           <h3 className="text-xl font-bold mb-4">Dashboard Menu</h3>
           <ul className="space-y-2">
             <li>
-              <button onClick={() => setCurrentPage('dashboard-home')} className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200">
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200"
+              >
                 Dashboard Home
               </button>
             </li>
             <li>
-              <button onClick={() => console.log('Manage Events')} className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200">
+              <button
+                onClick={() => navigate("/dashboard/events")}
+                className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200"
+              >
                 Manage Events
               </button>
             </li>
             <li>
-              <button onClick={() => console.log('User Profile')} className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200">
+              <button
+                onClick={() => navigate("/dashboard/profile")}
+                className="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-700 transition duration-200"
+              >
                 User Profile
               </button>
             </li>
@@ -31,3 +46,5 @@ function DashboardLayout({ children, setCurrentPage }) {
     </div>
   );
 }
+
+export default DashboardLayout;

@@ -1,15 +1,20 @@
-function SignInPage({ setCurrentPage }) {
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+const SignIn = () => {
   const { signin, loading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formError, setFormError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError('');
     try {
       await signin(email, password);
-      setCurrentPage('home');
+      navigate("/dashboard");
     } catch (err) {
       console.error("Sign-in error:", err.message);
       setFormError("Failed to sign in. Check your email and password.");
@@ -57,7 +62,7 @@ function SignInPage({ setCurrentPage }) {
         <p className="mt-6 text-center text-gray-600">
           Don't have an account?{' '}
           <button
-            onClick={() => setCurrentPage('signup')}
+            onClick={() => navigate('/signup')} 
             className="text-indigo-600 hover:underline font-medium focus:outline-none"
           >
             Sign Up
@@ -67,3 +72,5 @@ function SignInPage({ setCurrentPage }) {
     </section>
   );
 }
+
+export default SignIn;

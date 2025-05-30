@@ -1,9 +1,12 @@
-function PrivateRoutes({ children, currentUser, setCurrentPage }) {
-  useEffect(() => {
-    if (!currentUser) {
-      setCurrentPage('signin');
-    }
-  }, [currentUser, setCurrentPage]);
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
-  return currentUser ? children : null;
-}
+const PrivateRoutes = ({ children }) => {
+  const { user, loading } = useAuth();
+
+  if (loading) return null; 
+
+  return user ? children : <Navigate to="/signin" replace />;
+};
+
+export default PrivateRoutes;

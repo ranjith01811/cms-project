@@ -17,3 +17,5 @@ function HeroSection({ setCurrentPage }) {
     </section>
   );
 }
+
+export default HeroSection;

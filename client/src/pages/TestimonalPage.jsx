@@ -1,4 +1,4 @@
-function TestimonialsPage() {
+const TestimonialsPage = () => {
   return (
     <section id="testimonials-page-content" className="py-20 px-6 sm:px-10 bg-gray-100 min-h-screen pt-24">
       <div className="max-w-6xl mx-auto text-center">
@@ -33,3 +33,5 @@ function TestimonialsPage() {
     </section>
   );
 }
+
+export default TestimonialsPage;

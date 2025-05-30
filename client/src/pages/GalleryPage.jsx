@@ -67,3 +67,5 @@ function GalleryPage() {
     </section>
   );
 }
+
+export default GalleryPage;

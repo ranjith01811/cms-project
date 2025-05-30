@@ -1,25 +1,23 @@
-function SignUpPage({ setCurrentPage }) {
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+const SignUp = () => {
   const { signup, loading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [formError, setFormError] = useState('');
+  const navigate = useNavigate(); // 🔁
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError('');
-
-    if (password !== confirmPassword) {
-      setFormError("Passwords do not match.");
-      return;
-    }
-
     try {
       await signup(email, password);
-      setCurrentPage('signin');
+      navigate("/dashboard"); 
     } catch (err) {
       console.error("Sign-up error:", err.message);
-      setFormError("Failed to create an account. Email might be in use or password too weak.");
+      setFormError("Failed to create account. Try again.");
     }
   };
 
@@ -86,3 +84,5 @@ function SignUpPage({ setCurrentPage }) {
     </section>
   );
 }
+
+export default SignUp;

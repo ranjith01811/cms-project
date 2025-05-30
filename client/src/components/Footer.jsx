@@ -1,8 +1,4 @@
-
-import React from 'react';
-import '../styles/FooterComponent.css'; // Assuming you have a CSS file for styles
-import '../styles/tailwind.css'; // Ensure Tailwind CSS is imported
-function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 px-6 sm:px-10 text-center rounded-t-xl">
       <div className="max-w-6xl mx-auto">
@@ -15,3 +11,5 @@ function Footer() {
     </footer>
   );
 }
+
+export default Footer;
