@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
 import { Outlet } from 'react-router-dom';
+import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const BasicLayouts = () => {
   return (
     <>
+<<<<<<< HEAD
       <header className="bg-black text-white py-4 shadow-md flex flex-col sm:flex-row items-center justify-between px-6">
         <div className="text-2xl font-semibold flex items-center gap-2">
           <span role="img" aria-label='notes'>
@@ -21,13 +23,15 @@ const BasicLayouts = () => {
           </Link>
         </div>
       </header>
+=======
+      <Navbar />
+>>>>>>> 5dc93140126f30822e9c5e3f6fe4161783234c98
       <main>
-        <Outlet />
+        <Outlet /> 
       </main>
-      <footer className="bg-gray-100 text-gray-600 py-4 text-center mt-8 border-t">
-        &copy; {new Date().getFullYear()} Event Coordination & Planning CMS. All rights reserved.
-      </footer>
+      <Footer />
     </>
   );
-}
+};
+
 export default BasicLayouts;
