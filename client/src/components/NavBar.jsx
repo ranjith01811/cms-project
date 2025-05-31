@@ -28,18 +28,25 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">My Website</h1>
+        <div className="flex items-center gap-3">
+          <img
+            src="/src/assets/logo.jpg"
+            alt="Logo"
+            className="h-10 w-10 rounded-full object-cover shadow"
+          />
+          <h1 className="text-xl font-bold">BRT EVENT MANAGEMENT</h1>
+        </div>
 
         <div className="flex items-center space-x-6 text-sm font-medium">
-          <button onClick={() => scrollToSection('home')} className="hover:text-blue-500 cursor-pointer">Home</button>
-          <button onClick={() => scrollToSection('about')} className="hover:text-blue-500 cursor-pointer">About</button>
-          <button onClick={() => scrollToSection('services')} className="hover:text-blue-500 cursor-pointer">Services</button>
-          <button onClick={() => scrollToSection('gallery')} className="hover:text-blue-500 cursor-pointer">Gallery</button>
-          <button onClick={() => scrollToSection('testimonials')} className="hover:text-blue-500 cursor-pointer">Testimonials</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-blue-500 cursor-pointer">Contact</button>
+          <button onClick={() => scrollToSection('home')} className="hover:text-orange-500 cursor-pointer">Home</button>
+          <button onClick={() => scrollToSection('about')} className="hover:text-orange-500 cursor-pointer">About</button>
+          <button onClick={() => scrollToSection('services')} className="hover:text-orange-500 cursor-pointer">Services</button>
+          <button onClick={() => scrollToSection('gallery')} className="hover:text-orange-500 cursor-pointer">Gallery</button>
+          <button onClick={() => scrollToSection('testimonials')} className="hover:text-orange-500 cursor-pointer">Testimonials</button>
+          <button onClick={() => scrollToSection('contact')} className="hover:text-orange-500 cursor-pointer">Contact</button>
 
           {!user && (
-            <Link to="/login" className="text-blue-600 cursor-pointer">Login</Link>
+            <Link to="/login" className="text-orange-600 cursor-pointer">Login</Link>
           )}
           {user && (
             <button 

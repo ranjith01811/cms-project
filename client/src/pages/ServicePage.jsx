@@ -5,8 +5,8 @@ const ServicePage = () => {
       className="py-20 px-6 sm:px-10 bg-gray-100 min-h-screen pt-24"
     >
       <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold text-indigo-700 mb-10">
-          Our Comprehensive Services
+        <h1 className="text-4xl sm:text-5xl font-bold text-red-500 mb-10">
+          OUR COMPREHENSIVE SERVICES📋
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition duration-300 ease-in-out">

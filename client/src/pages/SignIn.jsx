@@ -24,7 +24,7 @@ const SignIn = () => {
   return (
     <section className="py-20 px-6 sm:px-10 bg-gray-100 min-h-screen flex items-center justify-center pt-24">
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
-        <h1 className="text-3xl font-bold text-center text-indigo-700 mb-6">Sign In</h1>
+        <h1 className="text-3xl font-bold text-center text-red-500 mb-6">Sign In</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
@@ -54,7 +54,7 @@ const SignIn = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-blue-950 hover:bg-orange-500 text-white font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Signing In...' : 'Sign In'}
           </button>
@@ -63,7 +63,7 @@ const SignIn = () => {
           Don't have an account?{' '}
           <button
             onClick={() => navigate('/register')} 
-            className="text-indigo-600 hover:underline font-medium focus:outline-none"
+            className="text-red-500 hover:underline font-medium focus:outline-none"
           >
             Sign Up
           </button>
