@@ -1,3 +1,6 @@
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { useAuth } from './AuthContext';
+
 const StorageContext = createContext();
 
 const useStorage = () => {
@@ -9,7 +12,7 @@ const useStorage = () => {
 };
 
 const StorageProvider = ({ children }) => {
-  const { currentUser, db } = useAuth(); // Get db instance from AuthContext
+  const { user, db } = useAuth(); 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
   const [error, setError] = useState(null);
@@ -108,3 +111,5 @@ const StorageProvider = ({ children }) => {
     </StorageContext.Provider>
   );
 };
+
+export { useStorage, StorageProvider};

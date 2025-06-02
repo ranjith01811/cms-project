@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #22223b;
+  background-color: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #c31432;
+}
+
+button, .btn {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+/* For overlay text in gallery and similar */
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Responsive font size for headers */
+@media (max-width: 640px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+}
