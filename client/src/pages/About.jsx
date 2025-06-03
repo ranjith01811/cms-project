@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 // imp
 const About = () => {
+  const navigate = useNavigate();
   const teamMembers = [
-    { name: "RANJITH KUMAR", role: "Event Planner (Project Lead)", initial: "RK" },
+    { name: "RANJITHKUMAR", role: "Event Planner (Project Lead)", initial: "RK" },
     { name: "TAMILVELAN", role: "Registration & Guest Management", initial: "TV" },
     { name: "BALA", role: "Technical Coordinator", initial: "B" },
   ];
@@ -133,7 +135,9 @@ const About = () => {
         <p className="text-lg mb-8 max-w-3xl mx-auto opacity-90">
           Discover events, connect with communities, and create memories that last.
         </p>
-        <button className="px-8 py-3 rounded-full bg-blue-950 bg- hover:bg-emerald-700 text-gradient-to-r from-customRed to-customPurple font-semibold text-lg transition transform hover:scale-105">
+        <button className="px-8 py-3 rounded-full bg-blue-950 bg- hover:bg-emerald-700 text-gradient-to-r from-customRed to-customPurple font-semibold text-lg transition transform hover:scale-105"
+          onClick={() => navigate("/contact")}
+          >
           Get Started Now
         </button>
       </section>

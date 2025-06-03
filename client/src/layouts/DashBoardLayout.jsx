@@ -45,7 +45,7 @@ const DashboardLayout = () => {
       )}
 
       <main className="flex-1 p-4 sm:p-10 transition-all duration-300">
-        <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-10">
+        <div className="max-w-5xl mx-auto p-6 sm:p-10">
           <Outlet />
         </div>
       </main>

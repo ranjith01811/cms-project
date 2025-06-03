@@ -1,77 +1,88 @@
 import React, { useEffect, useState } from "react";
 
 const mockEvents = [
-    {
-        id: 1,
-        title: "Annual Meetup",
-        date: "2025-06-10",
-        location: "Conference Hall A",
-        description: "A gathering of all members to discuss yearly progress.",
-    },
-    {
-        id: 2,
-        title: "Tech Talk",
-        date: "2025-06-12",
-        location: "Auditorium",
-        description: "A session on the latest trends in technology.",
-    },
-    {
-        id: 3,
-        title: "Kavin & Kala Wedding",
-        date: "2025-06-15",
-        location: "Coimbatore",
-        description: "A Grand wedding ceremony!! ",
-    },
-    {
-        id: 4,
-        title: "Pradeep Kumar Live Music Concert",
-        date: "2025-06-20",
-        location: "Auditorium",
-        description: "Live & feel good music concert",
-    },
+  {
+    id: 1,
+    title: "Annual Meetup",
+    date: "2025-06-10",
+    location: "Conference Hall-A1",
+    description: "A gathering of all members to discuss yearly progress🧑‍🤝‍🧑.",
+  },
+  {
+    id: 2,
+    title: "Tech Talk",
+    date: "2025-06-12",
+    location: "Auditorium",
+    description: "A session on the latest trends in technology🖥️.",
+  },
+  {
+    id: 3,
+    title: "Kavin & Kala Wedding",
+    date: "2025-06-15",
+    location: "Coimbatore",
+    description: "A grand wedding that unites not just two hearts but two families🤵👰.",
+  },
+  {
+      id: 4,
+      title: "Pradeep Kumar Live Music Concert",
+      date: "2025-06-20",
+      location: "Codissia Ground,Coimbatore",
+      description: "Live & feel good music concert🎤.",
+  },
+  
 ];
 
 const Events = () => {
-    const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
 
-    useEffect(() => {
-        setEvents(mockEvents);
-    }, []);
+  useEffect(() => {
+    setEvents(mockEvents);
+  }, []);
 
-    return (
-        <div className="max-w-3xl mx-auto mt-10 p-4 bg-transparent">
-            <h2 className="text-center text-4xl font-bold text-indigo-800 mb-10 tracking-wide">
-                Events
-            </h2>
-            {events.length === 0 ? (
-                <p className="text-center text-slate-500 text-lg">No events found.</p>
-            ) : (
-                <ul className="space-y-6">
-                    {events.map((event) => (
-                        <li
-                            key={event.id}
-                            className="bg-white rounded-xl shadow-lg border-l-8 border-indigo-400 p-7 hover:scale-[1.02] hover:shadow-2xl transition-all duration-200"
-                        >
-                            <h3 className="text-indigo-800 text-2xl font-semibold mb-2">
-                                {event.title}
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 mb-3 text-indigo-600 font-medium">
-                                <span className="flex items-center gap-1">
-                                    <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M4 11h16M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                    {event.date}
-                                </span>
-                                <span className="flex items-center gap-1">
-                                    <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 12.414a4 4 0 10-1.414 1.414l4.243 4.243a1 1 0 001.414-1.414z"></path><path d="M15 11a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                                    {event.location}
-                                </span>
-                            </div>
-                            <p className="text-slate-700">{event.description}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-indigo-100 to-white py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-500 mb-14">
+          Upcoming Events🎉
+        </h2>
+
+        {events.length === 0 ? (
+          <p className="text-center text-gray-500 text-lg font-medium">
+            No events found.
+          </p>
+        ) : (
+          <ul className="grid md:grid-cols-2 gap-10">
+            {events.map((event) => (
+              <li
+                key={event.id}
+                className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-lg transition-transform transform hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <h3 className="text-2xl font-semibold text-purple-800 mb-3">
+                  {event.title}
+                </h3>
+                <div className="text-sm text-gray-600 mb-4 space-y-1">
+                  <div className="flex items-center gap-2">
+                    📅 <span>{event.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    📍 <span>{event.location}</span>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  {event.description}
+                </p>
+                <div className="text-right">
+                  <button className="px-5 py-2 bg-blue-950 text-white rounded-md shadow hover:bg-orange-500 transition">
+                    View Details
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Events;

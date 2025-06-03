@@ -8,14 +8,16 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = localStorage.getItem("authToken"); 
     if (token) {
-      UserService.getUserProfile(token).then((profile) => {
-        if (profile) {
-          setUser(profile);
-        }
-        setLoading(false);
-      });
+      UserService.getUserProfile(token)
+        .then((profile) => {
+          if (profile) {
+            setUser(profile);
+          }
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
     } else {
       setLoading(false);
     }
@@ -23,18 +25,14 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (email, password) => {
     const profileData = await UserService.signup(email, password);
-    localStorage.setItem("authToken", profileData.token);
+    localStorage.setItem("authToken", profileData.token); 
     setUser(profileData);
   };
 
   const signin = async (email, password) => {
     const profile = await UserService.signin(email, password);
-    if (profile.password === password) {
-      localStorage.setItem("authToken", profile.token);
-      setUser(profile);
-    } else {
-      throw new Error("Invalid credentials");
-    }
+    localStorage.setItem("authToken", profile.token);
+    setUser(profile);
   };
 
   const logout = () => {

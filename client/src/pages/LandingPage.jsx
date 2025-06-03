@@ -8,12 +8,12 @@ import ContactPage from './ContactPage';
 const LandingPage = () => {
   return (
     <>
-      <section id="home"><Home /></section>
-      <section id="about"><About /></section>
-      <section id="services"><ServicePage /></section>
-      <section id="gallery"><GalleryPage /></section>
-      <section id="testimonials"><TestimonialsPage /></section>
-      <section id="contact"><ContactPage /></section>
+      <section id="home" className="scroll-mt-24"><Home /></section>
+      <section id="about" className="scroll-mt-24"><About /></section>
+      <section id="services" className="scroll-mt-24"><ServicePage /></section>
+      <section id="gallery" className="scroll-mt-24"><GalleryPage /></section>
+      <section id="testimonials" className="scroll-mt-24"><TestimonialsPage /></section>
+      <section id="contact" className="scroll-mt-24"><ContactPage /></section>
     </>
   );
 };
